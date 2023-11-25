@@ -4,6 +4,9 @@ let username = "SarahHeinz";
 let repoList = document.querySelector(".repo-list");
 let allRepoInfo = document.querySelector(".repos");
 let individualRepoInfo = document.querySelector(".repo-data");
+let backToGallery = document.querySelector(".view-repos");
+let filterInput = document.querySelector(".filter-repos");
+
 
 //Fetch API JSON Data
 const getUserData = async function () {
@@ -38,6 +41,7 @@ const getRepos = async function () {
 };
 
 const displayRepos = function (repos) {
+  filterInput.classList.remove("hide");
   for (const repo of repos) {
     const repoItem = document.createElement("li");
     repoItem.classList.add("repo");
@@ -66,7 +70,7 @@ const specRepoInfo = async function (repoName) {
   for (const language in languageData) {
     languages.push(language);
   }
-  displaySpecRepoInfo(repoInfo,languages);
+  displaySpecRepoInfo(repoInfo, languages);
 };
 
 const displaySpecRepoInfo = function (repoInfo, languages) {
@@ -83,6 +87,29 @@ const displaySpecRepoInfo = function (repoInfo, languages) {
   individualRepoInfo.append(div);
   individualRepoInfo.classList.remove("hide");
   allRepoInfo.classList.add("hide");
-
-
+  backToGallery.classList.remove("hide");
 };
+
+// Add a click event to the back button 
+backToGallery.addEventListener("click", function () {
+  allRepoInfo.classList.remove("hide");
+  individualRepoInfo.classList.add("hide");
+  backToGallery.classList.add("hide");
+});
+
+// Add an input Event to the search box
+
+filterInput.addEventListener("input", function (e) {
+  const searchText = e.target.value;
+  const repos = document.querySelectorAll(".repo");
+  const searchLowerText = searchText.toLowerCase();
+
+  for (const repo of repos) {
+    const repoTextLow = repo.innerText.toLowerCase();
+    if (repoTextLow.includes(searchLowerText)) {
+      repo.classList.remove("hide");
+    } else {
+      repo.classList.add("hide");
+    }
+  }
+});
