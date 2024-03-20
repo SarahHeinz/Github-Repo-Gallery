@@ -7,8 +7,6 @@ let individualRepoInfo = document.querySelector(".repo-data");
 let backToGallery = document.querySelector(".view-repos");
 let filterInput = document.querySelector(".filter-repos");
 
-
-//Fetch API JSON Data
 const getUserData = async function () {
   const userData = await fetch(`https://api.github.com/users/${username}`);
   const data = await userData.json();
@@ -50,8 +48,6 @@ const displayRepos = function (repos) {
   }
 };
 
-// Add Click event
-
 repoList.addEventListener("click", function (e) {
   if (e.target.matches("h3")) {
     const repoName = e.target.innerText;
@@ -65,7 +61,6 @@ const specRepoInfo = async function (repoName) {
   const fetchLanguages = await fetch(repoInfo.languages_url);
   const languageData = await fetchLanguages.json();
 
-  // Create an Array of Languages
   const languages = [];
   for (const language in languageData) {
     languages.push(language);
@@ -90,14 +85,11 @@ const displaySpecRepoInfo = function (repoInfo, languages) {
   backToGallery.classList.remove("hide");
 };
 
-// Add a click event to the back button 
 backToGallery.addEventListener("click", function () {
   allRepoInfo.classList.remove("hide");
   individualRepoInfo.classList.add("hide");
   backToGallery.classList.add("hide");
 });
-
-// Add an input Event to the search box
 
 filterInput.addEventListener("input", function (e) {
   const searchText = e.target.value;
