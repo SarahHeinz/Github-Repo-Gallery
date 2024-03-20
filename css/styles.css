@@ -147,7 +147,7 @@ ul {
 }
 
 section.repo-data {
-    background-color: #FFE4FB;
+    background-color: #fff;
     padding: 2em;
     padding-bottom: 1em;
 }
@@ -156,7 +156,7 @@ section.repo-data {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #FFE4FB;
+    background-color: #fff;
     margin-top: 0;
     padding: 2em;
 }
