@@ -134,7 +134,7 @@ ul {
     width: 100%;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid #9b8dc9;
+    border-bottom: 1px solid #351D77;
     padding-bottom: 19px;
 }
 
@@ -147,7 +147,7 @@ ul {
 }
 
 section.repo-data {
-    background-color: #fff;
+    background-color: #FFE4FB;
     padding: 2em;
     padding-bottom: 1em;
 }
@@ -156,7 +156,7 @@ section.repo-data {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #fff;
+    background-color: #FFE4FB;
     margin-top: 0;
     padding: 2em;
 }
